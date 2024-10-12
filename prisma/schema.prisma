@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime? @default(now()) @map("created_at")
+   updatedAt DateTime? @updatedAt
+   
+  email   String   @unique
+  username    String
+  password String
+  role role
+  jobs Jobs[]
+  applications Application[]
+  @@map("users")
+}
+
+
+model Jobs {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime? @default(now()) @map("created_at")
+   updatedAt DateTime? @updatedAt
+  isActive Boolean? @default(true)
+  title String
+  company String
+  description String
+  requirements String?
+  salary String
+  location String?
+  job_type String
+  user Users? @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId @unique
+  application Application?
+  applicationId String? @db.ObjectId @unique
+  @@map("jobs")
+}
+
+model Application{
+ id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime? @default(now()) @map("created_at")
+    updatedAt DateTime? @updatedAt
+    job Jobs? @relation(fields: [jobId], references: [id])
+    jobId String? @db.ObjectId @unique
+    fullname String?
+    email String?
+    tel String?
+    country String?
+    years_of_experience String?
+    last_job_title String?
+    experience experience[]
+    education education[]
+    reason String?
+    achievement achievement[]
+    proposed_salary String?
+    cv String[]
+    user Users? @relation(fields: [userId], references: [id])
+    userId String? @db.ObjectId @unique
+  @@map("applications")
+}
+
+enum role {
+   Employer
+   Employee
+}
+
+
+type experience{
+  company String?
+  job_title String?
+  years_of_experience String?
+  description String?
+  contract_length String?
+}
+type education{
+  degree String?
+  institution String?
+  years_of_study String?
+  study_length String?
+  description String?
+}
+type achievement{
+  achievement String?
+  description String?
+  year_obtained String?
+}

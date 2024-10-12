@@ -1,0 +1,60 @@
+{
+    "name": "online_shop2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "engines": {
+        "node": ">=16.8.0",
+        "npm": ">=9.5.0",
+        "yarn": "Please use npm for this project"
+    },
+    "engineStrict": true,
+    "scripts": {
+        "dev": "npx nodemon --exec npx babel-node src/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prisma:gen": "npx prisma generate",
+        "format:check": " npx prettier --check .",
+        "format:write": "npx prettier --write .",
+        "lint:check": "npx eslint .",
+        "lint:fix": "npx eslint --fix .",
+        "prisma:studio": "npx prisma studio"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/runtime": "^7.21.0",
+        "@prisma/client": "^4.13.0",
+        "@prisma/studio": "^0.484.0",
+        "axios": "^1.4.0",
+        "bcrypt": "^5.1.0",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "crypto-js": "^4.1.1",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-validator": "^7.0.1",
+        "firebase-admin": "^11.8.0",
+        "mongodb": "^5.2.0",
+        "morgan": "^1.10.0",
+        "node-mailjet": "^6.0.2",
+        "mongoose": "^7.0.3",
+        "multer": "^1.4.5-lts.1",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^4.6.2",
+        "twilio": "^4.11.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.3",
+        "@babel/node": "^7.20.7",
+        "@babel/plugin-transform-runtime": "^7.21.0",
+        "@babel/preset-env": "^7.20.2",
+        "eslint": "^8.39.0",
+        "eslint-config-prettier": "^8.8.0",
+        "ev": "^0.0.7",
+        "nodemon": "^2.0.22",
+        "prettier": "^2.8.8",
+        "prisma": "^4.13.0"
+    }
+}
