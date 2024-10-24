@@ -1,9 +1,12 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import { ErrorHandler } from './middleware/index.js';
-import { apiRoute } from './routes/index.js';
-import cors from 'cors';
-import morgan from 'morgan';
+// import express from 'express';
+const express = require('express');
+// import dotenv from 'dotenv';
+const dotenv = require('dotenv');
+const {ErrorHandler} = require('./middleware/index.js');
+const {apiRoute} = require('./routes/index.js');
+const cors = require('cors');
+const morgan = require('morgan');
+
 
 
 // ## dot env config;
@@ -13,7 +16,7 @@ dotenv.config();
 const app = express();
 
 // ## port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 // ## host
 const host = process.env.HOST || 'localhost';
