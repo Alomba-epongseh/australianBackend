@@ -1,30 +1,22 @@
 import { Router } from 'express';
-import {
-    authController,
-    jobsController,
-    applicationController,
-    fileUploadController,
-} from '../controllers/index';
-import {
-    imageProcessorMiddleware,
-    registrationValidator,
-    loginValidator,
-    rbacMiddleware,
-} from '../middleware/index.mjs';
-import { routesConstants } from '../constants/index';
+import { jobsController } from '../controllers/jobs.controller.js';
+import { authController } from '../controllers/auth.controller.js';
+import {applicationController} from '../controllers/application.controller.js';
+import {fileUploadController} from '../controllers/fileUpload.controller.js';
+import { imageProcessorMiddleware } from '../middleware/imageProcessor.middleware.js';
+import { rbacMiddleware } from '../middleware/rbac.middleware.js';
+import { routesConstants } from '../constants/routes.constants.js';
 import {GeneratePermissionsUtility} from '../utilities';
-import {
-    ActionsConstant,
-    EffectConstant,
-    TargetConstant,
-    TypeConstant,
-} from '../constants/index.js';
+import { ActionsConstant } from '../constants/permissions/actions.constant.js';
+import { EffectConstant } from '../constants/permissions/effect.constant.js';
+import { TargetConstant } from '../constants/permissions/target.constant.js';
+import { TypeConstant } from '../constants/permissions/type.constant.js';
 const { generatePermission } = new GeneratePermissionsUtility();
 //## Initialize express router;
 export const apiRoute = Router();
 
 //## register endpoint
-apiRoute.post(routesConstants.USERS.CREATE, [registrationValidator, rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
+apiRoute.post(routesConstants.USERS.CREATE, [rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
     generatePermission({
         resourceTarget: TargetConstant.USERS,
         resourceType: TypeConstant.ANY,
@@ -36,7 +28,7 @@ apiRoute.post(routesConstants.USERS.CREATE, [registrationValidator, rbacMiddlewa
 //Login user endpoint
 apiRoute.post(
     routesConstants.USERS.LOGIN,
-    [loginValidator, rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
+    [rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
         generatePermission({
             resourceTarget: TargetConstant.USERS,
             resourceType: TypeConstant.ANY,
