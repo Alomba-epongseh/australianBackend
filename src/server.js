@@ -1,11 +1,9 @@
-// import express from 'express';
-const express = require('express');
-// import dotenv from 'dotenv';
-const dotenv = require('dotenv');
-import {ErrorHandler} from './middleware/index.mjs';
-const {apiRoute} = require('./routes/index.js');
-const cors = require('cors');
-const morgan = require('morgan');
+import {express} from 'express';
+import {dotenv} from 'dotenv';
+import { ErrorHandler } from './middleware/error.middleware';
+import {apiRoute} from './routes/api.route';
+import {cors} from 'cors';
+import {morgan} from 'morgan';
 
 
 
