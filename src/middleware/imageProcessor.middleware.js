@@ -1,14 +1,14 @@
-import multer from 'multer';
-import { validateFileUtility } from '../utilities/index.js';
+// import multer from 'multer';
+// import { validateFileUtility } from '../utilities/validateFile.utility.js';
 
-class ImageProcessorMiddleware {
-    handle() {
-        return multer({
-            fileFilter: validateFileUtility.handle,
-            storage: multer.memoryStorage(),
-        }).array('file');
-    }
-}
-export const imageProcessorMiddleware = {
-    handle: new ImageProcessorMiddleware().handle(),
-};
+// class ImageProcessorMiddleware {
+//     handle() {
+//         return multer({
+//             fileFilter: validateFileUtility.handle,
+//             storage: multer.memoryStorage(),
+//         }).array('file');
+//     }
+// }
+// export const imageProcessorMiddleware = {
+//     handle: new ImageProcessorMiddleware().handle(),
+// };

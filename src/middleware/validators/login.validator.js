@@ -1,5 +1,5 @@
-import { RegexConstant } from '../../constants/index.js';
-import { ResponseHelper } from '../../helpers/index.js';
+import { RegexConstant } from '../../constants/Regex.constant.js';
+import { ResponseHelper } from '../../helpers/response.helper.js';
 
 /**
  Validates user registration input fields

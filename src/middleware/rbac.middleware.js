@@ -1,7 +1,8 @@
-import { cipherUtility, GeneratePermissionsUtility } from '../utilities/index.js';
-import { ResponseHelper } from '../helpers/index.js';
-import { verifyPermissionUtility } from '../utilities/index.js';
-import { RoleConstant } from '../constants/index.js';
+import { cipherUtility } from '../utilities/cipher.utility.js';
+import { GeneratePermissionsUtility } from '../utilities/generatePermissions.utility.js';
+import { ResponseHelper } from '../helpers/response.helper.js';
+import { verifyPermissionUtility } from '../utilities/verifyPermission.utility.js';
+import { RoleConstant } from '../constants/permissions/role.constant.js';
 
 
 export class RbacMiddleware {

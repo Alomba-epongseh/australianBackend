@@ -1,5 +1,5 @@
 import { ErrorHelper } from './error.helper.js';
-import { cipherUtility } from '../utilities/index.js';
+import { cipherUtility } from '../utilities/cipher.utility.js';
 
 /**
  * A helper class for sending HTTP responses.

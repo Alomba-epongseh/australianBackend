@@ -1,11 +1,8 @@
-import {
-    ActionsConstant,
-    EffectConstant,
-    RoleConstant,
-    TargetConstant,
-    TypeConstant,
-} from '../constants/index.js';
-
+import { ActionsConstant } from '../constants/permissions/actions.constant.js';
+import { EffectConstant } from '../constants/permissions/effect.constant.js';
+import { RoleConstant } from '../constants/permissions/role.constant.js';
+import { TargetConstant } from '../constants/permissions/target.constant.js';
+import { TypeConstant } from '../constants/permissions/type.constant.js';
 export class GeneratePermissionsUtility {
     generateGlobalPermission(role) {
         switch (role) {

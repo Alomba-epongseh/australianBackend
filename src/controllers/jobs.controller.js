@@ -1,6 +1,6 @@
-import { prisma } from '../config/index';
-import { ResponseHelper } from '../helpers/index.js';
-import { paginate } from '../utilities/index.js';
+import { prisma } from '../config/database.config.js';
+import { ResponseHelper } from '../helpers/response.helper.js';
+import { paginate } from '../utilities/pagination.utility.js';
 /**
  * A controller class for handling jobs-related requests.
  */

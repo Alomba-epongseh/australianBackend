@@ -1,4 +1,4 @@
-import Aes from 'crypto-js/aes';
+import Aes from 'crypto-js';
 import dotenv from 'dotenv';
 dotenv.config();
 

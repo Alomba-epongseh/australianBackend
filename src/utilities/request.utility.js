@@ -1,4 +1,4 @@
-import { ErrorHelper } from './../helpers/index.js';
+import { ErrorHelper } from './../helpers/error.helper.js';
 import fetch from 'node-fetch';
 
 /**

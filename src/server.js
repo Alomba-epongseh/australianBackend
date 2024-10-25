@@ -1,9 +1,9 @@
-import {express} from 'express';
-import {dotenv} from 'dotenv';
+import express from 'express';
+import * as dotenv from 'dotenv';
 import { ErrorHandler } from './middleware/error.middleware.js';
 import {apiRoute} from './routes/api.route.js';
-import {cors} from 'cors';
-import {morgan} from 'morgan';
+import cors from 'cors';
+import morgan from 'morgan';
 
 
 
@@ -58,6 +58,9 @@ process.on('unhandledRejection', (err) => {
 // ## Express middleware to convert all request to json
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Welcome to Australian Placement API');
+});
 // ## initialize api routes
 app.use(apiRoute);
 

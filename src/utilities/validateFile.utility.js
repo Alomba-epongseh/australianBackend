@@ -1,5 +1,5 @@
-import { ErrorHelper } from './../helpers/index.js';
-import { RegexConstant } from '../constants/index.js';
+import { ErrorHelper } from './../helpers/error.helper.js';
+import { RegexConstant } from '../constants/Regex.constant.js';
 class ValidateFileUtility {
     handle(req, file, cb) {
         if (!file.originalname.match(/\.(JPG|jpg|jpeg|png|gif|svg)$/)) {

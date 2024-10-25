@@ -1,6 +1,7 @@
-import { prisma } from '../config/index.js';
-import { ResponseHelper, CryptographyHelper } from '../helpers/index.js';
-import { paginate } from '../utilities';
+import { prisma } from '../config/database.config.js';
+import { ResponseHelper } from '../helpers/response.helper.js';
+import { CryptographyHelper } from '../helpers/cryptography.helper.js';
+import { paginate } from '../utilities/pagination.utility.js';
 /**
  * A controller class for handling authentication-related requests.
  */

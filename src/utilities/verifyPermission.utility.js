@@ -1,9 +1,7 @@
-import {
-    ActionsConstant,
-    EffectConstant,
-    TargetConstant,
-    TypeConstant,
-} from '../constants/index.js';
+import { ActionsConstant } from '../constants/permissions/actions.constant.js';
+import { EffectConstant } from '../constants/permissions/effect.constant.js';
+import { TargetConstant } from '../constants/permissions/target.constant.js';
+import { TypeConstant } from '../constants/permissions/type.constant.js';
 
 export const verifyPermissionUtility = (
     grantedPermissions,

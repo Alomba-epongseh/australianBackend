@@ -2,21 +2,23 @@ import { Router } from 'express';
 import { jobsController } from '../controllers/jobs.controller.js';
 import { authController } from '../controllers/auth.controller.js';
 import {applicationController} from '../controllers/application.controller.js';
-import {fileUploadController} from '../controllers/fileUpload.controller.js';
-import { imageProcessorMiddleware } from '../middleware/imageProcessor.middleware.js';
+// import {fileUploadController} from '../controllers/fileUpload.controller.js';
+// import { imageProcessorMiddleware } from '../middleware/imageProcessor.middleware.js';
 import { rbacMiddleware } from '../middleware/rbac.middleware.js';
 import { routesConstants } from '../constants/routes.constants.js';
 import {GeneratePermissionsUtility} from '../utilities/generatePermissions.utility.js';
+import { loginValidator } from '../middleware/validators/login.validator.js';
 import { ActionsConstant } from '../constants/permissions/actions.constant.js';
 import { EffectConstant } from '../constants/permissions/effect.constant.js';
 import { TargetConstant } from '../constants/permissions/target.constant.js';
 import { TypeConstant } from '../constants/permissions/type.constant.js';
+import { registrationValidator } from '../middleware/validators/registration.validator.js';
 const { generatePermission } = new GeneratePermissionsUtility();
 //## Initialize express router;
 export const apiRoute = Router();
 
 //## register endpoint
-apiRoute.post(routesConstants.USERS.CREATE, [rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
+apiRoute.post(routesConstants.USERS.CREATE, [registrationValidator,rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
     generatePermission({
         resourceTarget: TargetConstant.USERS,
         resourceType: TypeConstant.ANY,
@@ -28,7 +30,7 @@ apiRoute.post(routesConstants.USERS.CREATE, [rbacMiddleware.handleToken, rbacMid
 //Login user endpoint
 apiRoute.post(
     routesConstants.USERS.LOGIN,
-    [rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
+    [ loginValidator, rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
         generatePermission({
             resourceTarget: TargetConstant.USERS,
             resourceType: TypeConstant.ANY,
@@ -65,11 +67,11 @@ apiRoute.get(routesConstants.APPLICATION.GET_ALL, applicationController.getAllAp
 apiRoute.get(routesConstants.APPLICATION.GET_SINGLE, applicationController.getSingleApplication);
 
 //Image Upload
-apiRoute.post(
-    routesConstants.UPLOAD.IMAGE,
-    imageProcessorMiddleware.handle,
-    fileUploadController.single
-);
+// apiRoute.post(
+//     routesConstants.UPLOAD.IMAGE,
+//     imageProcessorMiddleware.handle,
+//     fileUploadController.single
+// );
 //Get all users
 apiRoute.get(routesConstants.USERS.GET_ALL,[rbacMiddleware.handleToken, rbacMiddleware.handleRbac(
     generatePermission({
