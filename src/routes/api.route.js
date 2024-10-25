@@ -6,7 +6,7 @@ import {fileUploadController} from '../controllers/fileUpload.controller.js';
 import { imageProcessorMiddleware } from '../middleware/imageProcessor.middleware.js';
 import { rbacMiddleware } from '../middleware/rbac.middleware.js';
 import { routesConstants } from '../constants/routes.constants.js';
-import {GeneratePermissionsUtility} from '../utilities';
+import {GeneratePermissionsUtility} from '../utilities/generatePermissions.utility.js';
 import { ActionsConstant } from '../constants/permissions/actions.constant.js';
 import { EffectConstant } from '../constants/permissions/effect.constant.js';
 import { TargetConstant } from '../constants/permissions/target.constant.js';
