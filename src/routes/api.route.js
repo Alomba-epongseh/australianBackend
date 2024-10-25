@@ -10,7 +10,7 @@ import {
     registrationValidator,
     loginValidator,
     rbacMiddleware,
-} from '../middleware/index';
+} from '../middleware/index.mjs';
 import { routesConstants } from '../constants/index';
 import {GeneratePermissionsUtility} from '../utilities';
 import {
