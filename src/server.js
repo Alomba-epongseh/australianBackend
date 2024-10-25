@@ -2,7 +2,7 @@
 const express = require('express');
 // import dotenv from 'dotenv';
 const dotenv = require('dotenv');
-const {ErrorHandler} = require('./middleware/index.mjs');
+import {ErrorHandler} from './middleware/index.mjs';
 const {apiRoute} = require('./routes/index.js');
 const cors = require('cors');
 const morgan = require('morgan');
