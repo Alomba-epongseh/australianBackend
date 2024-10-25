@@ -1,7 +1,7 @@
 import {express} from 'express';
 import {dotenv} from 'dotenv';
-import { ErrorHandler } from './middleware/error.middleware';
-import {apiRoute} from './routes/api.route';
+import { ErrorHandler } from './middleware/error.middleware.js';
+import {apiRoute} from './routes/api.route.js';
 import {cors} from 'cors';
 import {morgan} from 'morgan';
 
